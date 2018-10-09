@@ -7,6 +7,7 @@ public class LazyPrimMST {
 	private boolean[] marked; // 最小生成树的顶点
 	private Queue<Edge> mst; // 最小生成树的边
 	private MinPQ<Edge> pq; // 横切边（包括已经失效的边）
+	private double weight;
 	public LazyPrimMST(EdgeWeightedGraph G) {
 		pq = new MinPQ<Edge>();
 		marked = new boolean[G.V()];
@@ -19,6 +20,7 @@ public class LazyPrimMST {
 				continue;
 			}
 			mst.enqueue(e); // 将边添加到树中
+			weight += e.weight();
 			if(! marked[v]) { // 将顶点v/w 添加到树中
 				visit(G, v);
 			}
@@ -38,5 +40,8 @@ public class LazyPrimMST {
 	}
 	public Iterable<Edge> edges() {
 		return mst;
+	}
+	public double weight() {
+		return weight;
 	}
 }
