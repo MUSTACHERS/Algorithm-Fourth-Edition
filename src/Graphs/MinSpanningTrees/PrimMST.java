@@ -45,7 +45,7 @@ public class PrimMST {
 	public Iterable<Edge> edges() {
 		Queue<Edge> mst = new Queue<Edge>();
 		for(int v = 1; v < edgeTo.length; v++) {
-			mst.add(edgeTo[v]);
+			mst.enqueue(edgeTo[v]);
 		}
 		return mst;
 	}
