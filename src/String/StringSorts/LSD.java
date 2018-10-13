@@ -11,6 +11,7 @@ public class LSD {
 			int[] count = new int[R + 1]; // 计算出现的频率
 			for(int i = 0; i < N; i++) {
 				count[a[i].charAt(d) + 1]++;
+				// 下表加1，是为了访问count[]数组对应位置时可以直接获取aux[]中对应的下标
 			}
 			for(int r = 0; r < R; r++) { // 将频率转换为索引
 				count[r + 1] += count[r];
