@@ -1,4 +1,4 @@
-package String.StringSearch;
+package String.SubstringSearch;
 
 
 
