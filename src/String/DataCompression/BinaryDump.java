@@ -6,7 +6,7 @@ import edu.princeton.cs.algs4.StdOut;
 /** 二进制转储(Dump)
  * @author MUSTACHE
  *
- * abra.txt
+ * %java BinaryDump 16 < abra.txt
  * 0110000101100010
  * 0111001001100001
  * 0010111001110100
@@ -17,7 +17,7 @@ public class BinaryDump {
 	public static void main(String[] args) {
 		int width = Integer.parseInt(args[0]);
 		int cnt;
-		for(cnt = 0; !BinaryStdIn.isEmpty(); cnt++) {
+  		for(cnt = 0; !BinaryStdIn.isEmpty(); cnt++) {
 			if(width == 0) {
 				continue;
 			}
