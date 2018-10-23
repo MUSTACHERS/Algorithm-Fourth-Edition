@@ -4,6 +4,14 @@ import edu.princeton.cs.algs4.Alphabet;
 import edu.princeton.cs.algs4.BinaryStdIn;
 import edu.princeton.cs.algs4.BinaryStdOut;
 
+/**
+ * @author MUSTACHE
+ *
+ *%java Genome - < genomeTiny.txt
+ * ?? <- 在标准输出上无法看到的比特流
+ *
+ *
+ */
 public class Genome {
 	public static void compress() {
 		Alphabet DNA = new Alphabet("ACTG");

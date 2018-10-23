@@ -7,11 +7,14 @@ import edu.princeton.cs.algs4.StdOut;
  * @author MUSTACHE
  *
  * %java BinaryDump 16 < abra.txt
- * 0110000101100010
- * 0111001001100001
- * 0010111001110100
- * 0111100001110100
- * 000011010000101
+ * 0100000101000010
+ * 0101001001000001
+ * 0100001101000001
+ * 0100010001000001
+ * 0100001001010010
+ * 0100000100100001
+ * 96 bits
+ * 
  */
 public class BinaryDump {
 	public static void main(String[] args) {
