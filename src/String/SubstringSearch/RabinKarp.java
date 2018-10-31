@@ -56,6 +56,10 @@ public class RabinKarp {
 			// 减去第一个数字，加上最后一个数字，再次检查匹配
 			txtHash = (txtHash + Q - RM * txt.charAt(i-M) % Q) % Q;
 			txtHash = (txtHash + txt.charAt(i)) % Q;
+			// 上面两句等价于下面这句，性质还是同余模定理：每一个计算后都取一次余，和所有计算结束后取余的结构一样
+			// txtHash = (txtHash + Q - RM * txt.charAt(i-M) % Q) * R + txt.charAt(i)) % Q;
+			// 解释上面这句：txtHash - RM*txt.charAt(i-M)是代表用当前的hash值减去第一位数字；
+			// +Q代表防止前面的结果为负数，*R代表乘以基数，+txt.charAt(i)代表加上最后一位数字，然后取余。
 			if(patHash == txtHash) {
 				if(check(txt, i-M+1)) {
 					return i-M+1; // 找到匹配

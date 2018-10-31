@@ -1,5 +1,7 @@
 package String.SubstringSearch;
 
+import edu.princeton.cs.algs4.StdOut;
+
 public class BoyerMoore {
 	private int[] right;
 	private String pat;
@@ -28,8 +30,7 @@ public class BoyerMoore {
 			for(int j = M-1; j >= 0; j--) {
 				if(pat.charAt(j) != txt.charAt(j + i)) { // 匹配失败的处理
 					// 这句包含了两种处理：一种是txt字符存在于pat中，一种是txt字符不存在于pat中。
-					// 如果存在，我们把 txt.charAt(j+i) 当作索引传入 right[],
-					// 		会找到存在在pat字符的位置，然后j-right[txt.charAt(j+i)],下次循环时会跳到skip的位置，也就是txt字符与pat字符相等的位置
+					// 如果存在，会根据right[]数组 将模式字符串和文本对齐，使得该字符和它在模式字符串中出现在最右的相匹配
 					// 如果不存在，我们还是这样 传入，只不过在pat中找不到会返回 -1，所以 skip=j+1,那么下次i+j+1的位置
 					skip = j - right[txt.charAt(j + i)];
 					// 如果上面这条语句不能增大i，就直接将i+1来保证模式字符串至少向右移动了一个位置 
@@ -48,5 +49,18 @@ public class BoyerMoore {
 			}
 		}
 		return N; // 匹配失败
+	}
+	
+	public static void main(String[] args) {
+		String pat = args[0];
+		String txt = args[1];
+		BoyerMoore bm = new BoyerMoore(pat);
+		StdOut.println("text:    " + txt);
+		int offset = bm.search(txt);
+		StdOut.print("pattern: ");
+		for(int i = 0; i < offset; i++) {
+			StdOut.print(" ");
+		}
+		StdOut.println(pat);
 	}
 }

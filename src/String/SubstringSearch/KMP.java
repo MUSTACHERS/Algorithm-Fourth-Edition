@@ -19,10 +19,11 @@ public class KMP {
 		int M = pat.length();
 		int R = 256;
 		dfa = new int[R][M];
-		dfa[pat.charAt(0)][0] = 1;
-		for(int X = 0, j = 1; j < M; j++) {
-			// 计算dfa[][]
+		dfa[pat.charAt(0)][0] = 1; // 先将模式的第一个字符设置1，表示匹配，进一位
+		for(int X = 0, j = 1; j < M; j++) { // j=1，是因为上一步我们已经匹配了模式的第一个字符
+			// 计算dfa[][j]
 			for(int c = 0; c < R; c++) {
+				// 将dfa[][X] 复制到 dfa[][j]
 				dfa[c][j] = dfa[c][X]; // 复制匹配失败情况下的值
 			}
 			dfa[pat.charAt(j)][j] = j+1; // 设置匹配成功情况下的值
