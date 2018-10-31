@@ -100,7 +100,7 @@ public class CollisionSystem {
 	public static void main(String[] args) {
 		StdDraw.show(0);
 		int N = Integer.parseInt(args[0]);
-		Particle[] particles = new Particle[N];
+		Particle[] particles = new Particle[N]; // 创建n个粒子
 		
 		for(int i = 0; i < N; i++) {
 			particles[i] = new Particle();
